@@ -1,10 +1,15 @@
 package LexicalAnalyzer.States.Interfaces;
 
 import Diccionary.Diccionary;
+import LexicalAnalyzer.Outputs.BasicOutput;
+import LexicalAnalyzer.Outputs.ComplexOutput;
 import LexicalAnalyzer.States.S0;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public abstract class AcceptanceState extends AbstractState {
+
+    protected String token;
+
     public AcceptanceState(Diccionary diccionary, String buffer) {
         super(diccionary, buffer);
     }
@@ -20,4 +25,13 @@ public abstract class AcceptanceState extends AbstractState {
 
     @Override
     public IState processCharacter(char character) { throw new NotImplementedException(); }
+
+    protected ComplexOutput generateComplexOutput(String token, int row, int col) {
+        return new ComplexOutput(
+                token,
+                this.buffer.substring(0, this.buffer.length() - this.getReturnSpaces()),
+                row,
+                col - this.buffer.length() + 1
+        );
+    }
 }

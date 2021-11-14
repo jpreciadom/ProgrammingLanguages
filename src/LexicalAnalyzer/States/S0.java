@@ -15,9 +15,9 @@ public class S0 extends NotAcceptanceState {
         String buffer = this.validateCharacter(character, true);
 
         if (IState.isNumeric(character)) {
-            return null;
+            return new S35(diccionary, buffer);
         } else if (IState.isAlphabetic(character)) {
-            return null;
+            return new S41(diccionary, buffer);
         }
 
         switch (character) {
@@ -28,41 +28,44 @@ public class S0 extends NotAcceptanceState {
             case '<':
                 return new S3(diccionary, buffer);
             case '>':
-                return null;
+                return new S8(diccionary, buffer);
             case '+':
-                return null;
+                return new S11(diccionary, buffer);
             case '-':
-                return null;
+                return new S12(diccionary, buffer);
             case '/':
-                return null;
+                return new S14(diccionary, buffer);
             case '*':
-                return null;
+                return new S18(diccionary, buffer);
             case '%':
-                return null;
+                return new S19(diccionary, buffer);
             case ';':
-                return null;
+                return new S20(diccionary, buffer);
             case ':':
-                return null;
+                return new S21(diccionary, buffer);
             case '(':
-                return null;
+                return new S22(diccionary, buffer);
             case ')':
-                return null;
+                return new S23(diccionary, buffer);
             case '[':
-                return null;
+                return new S24(diccionary, buffer);
             case ']':
-                return null;
+                return new S25(diccionary, buffer);
             case '|':
-                return null;
+                return new S26(diccionary, buffer);
             case '&':
-                return null;
+                return new S27(diccionary, buffer);
             case ',':
-                return null;
+                return new S28(diccionary, buffer);
             case '^':
-                return null;
+                return new S29(diccionary, buffer);
             case '\'':
-                return null;
+                return new S30(diccionary, buffer);
             case '\"':
-                return null;
+                return new S33(diccionary, buffer);
+            case ' ':
+            case '\n':
+                return new S0(diccionary);
             default:
                 throw new LexicalError("Unexpected token found");
         }

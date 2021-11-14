@@ -1,21 +1,16 @@
 package LexicalAnalyzer.States;
 
 import Diccionary.Diccionary;
-import LexicalAnalyzer.Outputs.BasicOutput;
-import LexicalAnalyzer.States.Interfaces.AcceptanceState;
+import LexicalAnalyzer.States.Interfaces.BasicAcceptanceState;
 
-public class S7 extends AcceptanceState {
+public class S7 extends BasicAcceptanceState {
     public S7(Diccionary diccionary, String buffer) {
         super(diccionary, buffer);
+        this.token = "token_menor";
     }
 
     @Override
     public int getReturnSpaces() {
         return 1;
-    }
-
-    @Override
-    public BasicOutput getToken(int row, int col) {
-        return new BasicOutput("token_menor", row, col - this.buffer.length() + 1);
     }
 }

@@ -3,14 +3,14 @@ package LexicalAnalyzer.States;
 import Diccionary.Diccionary;
 import LexicalAnalyzer.States.Interfaces.BasicAcceptanceState;
 
-public class S1 extends BasicAcceptanceState {
-    public S1(Diccionary diccionary, String buffer) {
+public class S15 extends BasicAcceptanceState {
+    public S15(Diccionary diccionary, String buffer) {
         super(diccionary, buffer);
-        this.token = "token_neg";
+        this.token = "token_div";
     }
 
     @Override
     public int getReturnSpaces() {
-        return 0;
+        return 1;
     }
 }

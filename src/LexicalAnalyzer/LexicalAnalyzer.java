@@ -8,6 +8,7 @@ import LexicalAnalyzer.Outputs.ErrorOutput;
 import LexicalAnalyzer.States.Interfaces.IState;
 import LexicalAnalyzer.States.S0;
 
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
@@ -18,9 +19,9 @@ public class LexicalAnalyzer {
     protected IState currentState;
     protected final LinkedList<BaseOutput> output;
 
-    public LexicalAnalyzer(Diccionary diccionary) {
+    public LexicalAnalyzer(Diccionary diccionary, InputStream readFrom) {
         this.diccionary = diccionary;
-        input = new Scanner(System.in);
+        input = new Scanner(readFrom);
         currentState = new S0(diccionary);
         output = new LinkedList<>();
     }
