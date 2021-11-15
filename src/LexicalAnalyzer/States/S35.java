@@ -13,7 +13,9 @@ public class S35 extends NotAcceptanceState {
     @Override
     public IState processCharacter(char character) throws LexicalError {
         String buffer = this.validateCharacter(character, true);
-        if (IState.isNumeric(character)) {
+        if (IState.isAlphabetic(character)) {
+            throw new LexicalError("Unexpected token");
+        } else if (IState.isNumeric(character)) {
             return new S35(diccionary, buffer);
         } else if (character == '.') {
             return new S36(diccionary, buffer);

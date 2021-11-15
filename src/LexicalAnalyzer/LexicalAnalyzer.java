@@ -40,7 +40,7 @@ public class LexicalAnalyzer {
                 try {
                     currentState = currentState.processCharacter(readRow.charAt(col));
                 } catch (LexicalError lexicalError) {
-                    this.output.addLast(new ErrorOutput(row, col + 1));
+                    this.output.addLast(new ErrorOutput(row, col + 1 - currentState.getBuffer().length()));
                     return false;
                 }
                 if (currentState.isAcceptanceState()) {
