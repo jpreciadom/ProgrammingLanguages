@@ -13,7 +13,7 @@ public class Test {
     public static void main(String[] args) {
         diccionary = new Diccionary();
 
-        for (int i = 1; i <= 1; i++) {
+        for (int i = 1; i <= 11; i++) {
             FileInputStream testInputStream = null;
             Scanner expectedOutput = null;
             try {
@@ -27,7 +27,7 @@ public class Test {
                 System.exit(-1);
             }
 
-            System.out.println("Test No: " + i);
+            System.out.println("Test No: " + i + "\n");
 
             lexicalAnalyzer = new LexicalAnalyzer(diccionary, testInputStream);
             lexicalAnalyzer.analyze();
@@ -44,6 +44,7 @@ public class Test {
                     System.exit(-1);
                 }
             }
+            System.out.println("\n");
         }
     }
 }
