@@ -105,6 +105,7 @@ public class Diccionary {
             "para",
             "paso",
             "proceso",
+            "que",
             "real",
             "repetir",
             "segun",

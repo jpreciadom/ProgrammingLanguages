@@ -12,7 +12,7 @@ public class S36 extends NotAcceptanceState {
 
     @Override
     public IState processCharacter(char character) throws LexicalError {
-        String buffer = this.validateCharacter(character, true);
+        String buffer = this.validateCharacter(character, false);
         if (IState.isNumeric(character)) {
             return new S37(diccionary, buffer);
         } else {

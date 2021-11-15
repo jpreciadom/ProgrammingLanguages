@@ -2,6 +2,8 @@ package LexicalAnalyzer;
 
 import Diccionary.Diccionary;
 import LexicalAnalyzer.Exceptions.LexicalError;
+import LexicalAnalyzer.Exceptions.UnexpectedToken;
+import LexicalAnalyzer.Exceptions.UnknownToken;
 import LexicalAnalyzer.Outputs.BaseOutput;
 import LexicalAnalyzer.Outputs.BasicOutput;
 import LexicalAnalyzer.Outputs.ErrorOutput;
@@ -40,7 +42,11 @@ public class LexicalAnalyzer {
                 try {
                     currentState = currentState.processCharacter(readRow.charAt(col));
                 } catch (LexicalError lexicalError) {
-                    this.output.addLast(new ErrorOutput(row, col + 1 - currentState.getBuffer().length()));
+                    if (lexicalError instanceof UnexpectedToken) {
+                        this.output.addLast(new ErrorOutput(row, col + 1 - currentState.getBuffer().length()));
+                    } else if (lexicalError instanceof UnknownToken) {
+                        this.output.addLast(new ErrorOutput(row, col + 1));
+                    }
                     return false;
                 }
                 if (currentState.isAcceptanceState()) {

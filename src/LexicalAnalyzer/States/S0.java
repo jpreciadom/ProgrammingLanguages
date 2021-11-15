@@ -2,6 +2,7 @@ package LexicalAnalyzer.States;
 
 import Diccionary.Diccionary;
 import LexicalAnalyzer.Exceptions.LexicalError;
+import LexicalAnalyzer.Exceptions.UnexpectedToken;
 import LexicalAnalyzer.States.Interfaces.IState;
 import LexicalAnalyzer.States.Interfaces.NotAcceptanceState;
 
@@ -66,7 +67,7 @@ public class S0 extends NotAcceptanceState {
             case '\n':
                 return new S0(diccionary);
             default:
-                throw new LexicalError("Unexpected token found");
+                throw new UnexpectedToken();
         }
     }
 }

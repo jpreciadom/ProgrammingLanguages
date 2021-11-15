@@ -12,7 +12,7 @@ public class S14 extends NotAcceptanceState {
 
     @Override
     public IState processCharacter(char character) throws LexicalError {
-        String buffer = this.validateCharacter(character, true);
+        String buffer = this.validateCharacter(character, false);
         switch (character) {
             case '/':
                 return new S16(diccionary, buffer);
