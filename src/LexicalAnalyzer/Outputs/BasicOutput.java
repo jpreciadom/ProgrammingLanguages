@@ -5,6 +5,7 @@ public class BasicOutput extends BaseOutput {
 
     public BasicOutput(String tokenType, int row, int col) {
         super(row, col);
+        this.tokenType = tokenType;
         this.row = row;
         this.col = col;
     }

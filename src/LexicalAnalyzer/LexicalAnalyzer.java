@@ -34,9 +34,9 @@ public class LexicalAnalyzer {
         int row = 0;
         while(this.input.hasNext()) {
             row ++;
-            String readRow = this.input.nextLine();
-            for (int col = 0; col < readRow.length(); col++ ) {
-                col ++;
+            int col = 0;
+            String readRow = new StringBuilder(this.input.nextLine()).append('\n').toString();
+            while (col < readRow.length()) {
                 try {
                     currentState = currentState.processCharacter(readRow.charAt(col));
                 } catch (LexicalError lexicalError) {
@@ -44,10 +44,11 @@ public class LexicalAnalyzer {
                     return false;
                 }
                 if (currentState.isAcceptanceState()) {
-                    col -= currentState.getReturnSpaces();
                     this.output.addLast(currentState.getToken(row, col + 1));
-                    currentState.lambdaTransition();
+                    col -= currentState.getReturnSpaces();
+                    currentState = currentState.lambdaTransition();
                 }
+                col++;
             }
         }
         return true;

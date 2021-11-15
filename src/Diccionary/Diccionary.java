@@ -50,6 +50,8 @@ public class Diccionary {
             '&',
             ',',
             '^',
+            ' ',
+            '\n'
         };
         for (char validCharacter : validCharacters) {
             this.validCharacters.put(validCharacter, true);

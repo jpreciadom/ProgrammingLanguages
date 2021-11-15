@@ -12,13 +12,12 @@ public class S42 extends AcceptanceState {
 
     @Override
     public int getReturnSpaces() {
-        return 0;
+        return 1;
     }
 
     @Override
     public BasicOutput getToken(int row, int col) {
         this.token = this.buffer.substring(0, this.buffer.length() - 1).toLowerCase();
-        System.out.println("I've found the following id or reserved word: " + this.token);
         if (this.diccionary.isReservedWord(token)) {
             return new BasicOutput(this.token, row, col - this.buffer.length() + 1);
         } else {
