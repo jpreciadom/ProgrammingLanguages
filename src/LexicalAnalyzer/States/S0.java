@@ -60,9 +60,8 @@ public class S0 extends NotAcceptanceState {
             case '^':
                 return new S29(diccionary, buffer);
             case '\'':
-                return new S30(diccionary, buffer);
             case '\"':
-                return new S33(diccionary, buffer);
+                return new S30(diccionary, buffer);
             case ' ':
             case '\n':
                 return new S0(diccionary);

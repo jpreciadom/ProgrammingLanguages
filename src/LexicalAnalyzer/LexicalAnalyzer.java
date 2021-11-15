@@ -44,7 +44,10 @@ public class LexicalAnalyzer {
                     return false;
                 }
                 if (currentState.isAcceptanceState()) {
-                    this.output.addLast(currentState.getToken(row, col + 1));
+                    BasicOutput token = currentState.getToken(row, col + 1);
+                    if (token != null) {
+                        this.output.addLast(currentState.getToken(row, col + 1));
+                    }
                     col -= currentState.getReturnSpaces();
                     currentState = currentState.lambdaTransition();
                 }

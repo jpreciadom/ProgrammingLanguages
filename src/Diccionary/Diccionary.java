@@ -5,12 +5,15 @@ import java.util.HashMap;
 public class Diccionary {
     protected final HashMap<Character, Boolean> validCharacters;
     protected final HashMap<String, Boolean> reservedWords;
+    protected final HashMap<String, String> customTokens;
 
     public Diccionary() {
-        validCharacters = new HashMap<>();
+        this.validCharacters = new HashMap<>();
         this.reservedWords = new HashMap<>();
-        this.setupReservedWords();
+        this.customTokens = new HashMap<>();
         this.setupValidCharacters();
+        this.setupReservedWords();
+        this.setupCustomTokens();
     }
 
     private void setupValidCharacters() {
@@ -29,7 +32,7 @@ public class Diccionary {
         char []validCharacters = {
             '\\',
             '_',
-            '\'',
+            '\"',
             '\'',
             '~',
             '-',
@@ -40,6 +43,8 @@ public class Diccionary {
             '/',
             '*',
             '%',
+            '.',
+            ',',
             ';',
             ':',
             '(',
@@ -48,7 +53,6 @@ public class Diccionary {
             ']',
             '|',
             '&',
-            ',',
             '^',
             ' ',
             '\n'
@@ -62,6 +66,7 @@ public class Diccionary {
         String []reservedWords = {
             "algoritmo",
             "borrar",
+            "cadena",
             "caracter",
             "como",
             "con",
@@ -74,38 +79,55 @@ public class Diccionary {
             "esperar",
             "falso",
             "finalgoritmo",
+            "finfuncion",
             "finmientras",
             "finpara",
             "finproceso",
             "finsegun",
             "finsi",
             "finsubproceso",
+            "funcion",
             "hacer",
             "hasta",
             "leer",
+            "limpiar",
             "logico",
+            "mod",
             "mientras",
             "milisegundos",
             "modo",
+            "no",
             "numerico",
+            "numero",
+            "o",
             "otro",
             "pantalla",
             "para",
             "paso",
             "proceso",
             "real",
+            "repetir",
             "segun",
             "segundos",
             "si",
             "sino",
             "subproceso",
             "tecla",
-            "verdadero"
+            "texto",
+            "verdadero",
+            "y"
         };
 
         for (String reservedWord : reservedWords) {
             this.reservedWords.put(reservedWord, true);
         }
+    }
+
+    private void setupCustomTokens() {
+        this.customTokens.put("y", "token_y");
+        this.customTokens.put("o", "token_o");
+        this.customTokens.put("no", "token_neg");
+        this.customTokens.put("mod", "token_mod");
     }
 
     public boolean findCharacter(char toCheck) {
@@ -114,5 +136,13 @@ public class Diccionary {
 
     public boolean isReservedWord(String toCheck) {
         return this.reservedWords.get(toCheck) != null;
+    }
+
+    public boolean isCustomToken(String token) {
+        return this.customTokens.get(token) != null;
+    }
+
+    public String getCustomToken(String token) {
+        return this.customTokens.get(token);
     }
 }

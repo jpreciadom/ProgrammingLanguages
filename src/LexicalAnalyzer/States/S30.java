@@ -17,6 +17,7 @@ public class S30 extends NotAcceptanceState {
             case '\n':
                 return new S32(diccionary, buffer);
             case '\'':
+            case '\"':
                 return new S31(diccionary, buffer);
             default:
                 return new S30(diccionary, buffer);

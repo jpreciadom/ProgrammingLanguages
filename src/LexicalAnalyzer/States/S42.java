@@ -19,7 +19,13 @@ public class S42 extends AcceptanceState {
     public BasicOutput getToken(int row, int col) {
         this.token = this.buffer.substring(0, this.buffer.length() - 1).toLowerCase();
         if (this.diccionary.isReservedWord(token)) {
-            return new BasicOutput(this.token, row, col - this.buffer.length() + 1);
+            String token;
+            if (this.diccionary.isCustomToken(this.token)) {
+                token = this.diccionary.getCustomToken(this.token);
+            } else {
+                token = this.token;
+            }
+            return new BasicOutput(token, row, col - this.buffer.length() + 1);
         } else {
             return new ComplexOutput("id", this.token, row, col - this.buffer.length() + 1);
         }
