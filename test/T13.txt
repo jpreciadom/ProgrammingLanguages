@@ -1,0 +1,7 @@
+proceso Mi_proceso_de_prueba
+    definir c como cadena;
+
+    c <- 'Cadena de prueba";
+    c <- "Caracteres raros !@#$%^&*()~`//\\[{]}|\-_=+,<.>'
+    c <- "Cadena que no cierra
+finproceso

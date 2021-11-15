@@ -13,7 +13,7 @@ public class Test {
     public static void main(String[] args) {
         diccionary = new Diccionary();
 
-        for (int i = 1; i <= 12; i++) {
+        for (int i = 1; i <= 13; i++) {
             FileInputStream testInputStream = null;
             Scanner expectedOutput = null;
             try {

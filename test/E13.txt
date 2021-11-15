@@ -1,0 +1,17 @@
+<proceso,1,1>
+<id,mi_proceso_de_prueba,1,9>
+<definir,2,5>
+<id,c,2,13>
+<como,2,15>
+<cadena,2,20>
+<token_pyc,2,26>
+<id,c,4,5>
+<token_asig,4,7>
+<token_cadena,Cadena de prueba,4,10>
+<token_pyc,4,28>
+<id,c,5,5>
+<token_asig,5,7>
+<token_cadena,Caracteres raros !@#$%^&*()~`//\\[{]}|\-_=+,<.>,5,10>
+<id,c,6,5>
+<token_asig,6,7>
+>>> Error lexico (linea: 6, posicion: 10)
