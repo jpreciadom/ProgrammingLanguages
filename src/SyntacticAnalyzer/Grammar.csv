@@ -9,6 +9,17 @@ BinaryOp,token_menos
 BinaryOp,token_div
 BinaryOp,token_mul
 ,
+BooleanBinaryOp,token_dif
+BooleanBinaryOp,token_menor
+BooleanBinaryOp,token_menor_igual
+BooleanBinaryOp,token_mayor
+BooleanBinaryOp,token_mayor_igual
+BooleanUnaryOp,token_neg
+,
+BooleanExpression,Expression BooleanExpressionOp
+BooleanExpressionOp,BooleanBinaryOp BooleanExpression BooleanExpressionOp
+BooleanExpressionOp,
+,
 Cmd,escribir ExpressionFullList token_pyc
 Cmd,leer IdFullList token_pyc
 ,
@@ -21,6 +32,10 @@ DefType,texto
 DefType,cadena
 DefType,numero
 DefType,logico
+,
+Else,sino ProcessBody
+Else,
+ElseIf,Else
 ,
 Expression,Value ExpressionOp
 Expression,UnaryOp Expression ExpressionOp
@@ -42,6 +57,8 @@ IdFullList,id IdList
 IdList,token_coma IdFullList
 IdList,
 ,
+If,si BooleanExpression entonces ProcessBody ElseIf finsi
+,
 NumericalExpression,token_real NumericalExpressionOp
 NumericalExpression,token_entero NumericalExpressionOp
 NumericalExpression,token_par_izq NumericalExpression token_par_der NumericalExpressionOp
@@ -59,6 +76,7 @@ ProcessAction,Def
 ProcessAction,Asig
 ProcessAction,Cmd
 ProcessAction,SetArrayDimension
+ProcessAction,If
 ProcessAction,token_pyc
 ProcessActionList,ProcessAction ProcessActionList
 ProcessActionList,

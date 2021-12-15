@@ -64,7 +64,7 @@ public class Test {
     public static void testSyntacticAnalyzer() throws FileNotFoundException {
         System.out.println("Testing syntactic analyzer\n");
         String testFolderPath = baseTestURL + "\\SyntacticAnalyzerTest\\";
-        for (int i = 1; i <= 6; i++) {
+        for (int i = 7; i <= 7; i++) {
             FileInputStream testInputStream = getTestFile(testFolderPath, i);
             Scanner expectedOutput = new Scanner(getExpectedFile(testFolderPath, i));
 

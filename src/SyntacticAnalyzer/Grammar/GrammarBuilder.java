@@ -145,6 +145,11 @@ public class GrammarBuilder extends Grammar {
                             }
                             firstOfBeta = this.getFirstOf(beta);
 
+                            if (firstOfBeta == null) {
+                                System.out.println("Non-terminal " + beta + " wasn't found");
+                                System.exit(-1);
+                            }
+
                             TreeSet<String> followOfA = this.nonTerminalsFollows.get(A);
                             int oldSize = followOfA.size();
                             followOfA.addAll(firstOfBeta);

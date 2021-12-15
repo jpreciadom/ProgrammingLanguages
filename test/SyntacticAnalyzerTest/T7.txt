@@ -1,0 +1,14 @@
+Proceso mi_proceso
+    si    num1 > num2 entonces
+        res <- num1;
+    sino
+        res <- num2;
+    FinSi
+
+    
+    si num1 > num2 entonces //error sintactico, falta 'entonces'
+        res <- num1;
+    sino
+        res <- num2;
+    finsi
+FinProceso
