@@ -1,6 +1,6 @@
 S,SubProcess Process
 ,
-ArrayDimensions,id token_cor_izq NumericalExpresion token_cor_der
+ArrayDimensions,token_cor_izq NumericalExpressionFullList token_cor_der
 ,
 Asig,id token_asig Expression token_pyc
 ,
@@ -45,6 +45,11 @@ IdList,
 NumericalExpression,token_real NumericalExpressionOp
 NumericalExpression,token_entero NumericalExpressionOp
 NumericalExpression,token_par_izq NumericalExpression token_par_der NumericalExpressionOp
+,
+NumericalExpressionFullList,Expression ExpressionList
+NumericalExpressionList,token_coma ExpressionFullList
+NumericalExpressionList,
+,
 NumericalExpressionOp,BinaryOp NumericalExpression NumericalExpressionOp
 NumericalExpressionOp,
 ,
@@ -59,10 +64,7 @@ ProcessActionList,ProcessAction ProcessActionList
 ProcessActionList,
 ProcessBody,ProcessAction ProcessActionList
 ,
-SetArrayDimension,dimension SetArrayDimensions SetArrayDimensionsList token_pyc
-,
-SetArrayDimensionsList,token_coma ArrayDimensions SetArrayDimensionsList
-SetArrayDimensionsList,
+SetArrayDimension,dimension id ArrayDimensions token_pyc
 ,
 SubProcess,subproceso id token_asig id token_par_izq IdFullList token_par_der ProcessBody finsubproceso
 SubProcess,
