@@ -1,15 +1,18 @@
 package SyntacticAnalyzer.Grammar;
 
-import SyntacticAnalyzer.Exceptions.NoDerivationFound;
+import Diccionary.Diccionary;
+import LexicalAnalyzer.Tokens.BasicToken;
+import SyntacticAnalyzer.Exceptions.NoDerivationFoundException;
 
-import java.io.InputStream;
 import java.util.*;
 
 public class Grammar {
     protected final HashMap<String, LinkedList<Rule>> rules;
+    protected final Diccionary diccionary;
 
-    public Grammar() {
+    public Grammar(Diccionary diccionary) {
         this.rules = new HashMap<>();
+        this.diccionary = diccionary;
     }
 
     public HashMap<String, LinkedList<Rule>> getRules() {
@@ -20,8 +23,9 @@ public class Grammar {
         return 'a' <= symbol.charAt(0) && symbol.charAt(0) <= 'z';
     }
 
-    public LinkedList<String> derive(String symbol, String nonTerminal) throws NoDerivationFound {
+    public LinkedList<String> derive(String symbol, BasicToken token) throws NoDerivationFoundException {
         Rule epsilon = null;
+        String nonTerminal = token.getTokenType();
         for (Rule rule : this.rules.get(symbol)) {
             if (rule.getPredictionSet().contains(nonTerminal)) {
                 return (LinkedList<String>) rule.getDerivation().clone();
@@ -33,7 +37,24 @@ public class Grammar {
         if (epsilon != null) {
             return (LinkedList<String>) epsilon.getDerivation().clone();
         } else {
-            throw new NoDerivationFound("");
+            StringBuilder errorBuilder = new StringBuilder();
+            errorBuilder.append("<").append(token.getRow()) .append(":") .append(token.getCol()) .append(">");
+            errorBuilder.append(" Error sintactico: se encontro: \"") .append(token.getTokenType()).append("\";");
+            errorBuilder.append(" se esperaba: ");
+            for (String expectedToken : this.getExpectedTokens(symbol)) {
+                errorBuilder.append('\"').append(expectedToken).append('\"').append(',');
+            }
+            errorBuilder.setLength(errorBuilder.length() - 1);
+            errorBuilder.append('.');
+            throw new NoDerivationFoundException(errorBuilder.toString());
         }
+    }
+
+    private TreeSet<String> getExpectedTokens(String symbol) {
+        TreeSet<String> expectedTokens = new TreeSet<>();
+        for (Rule rule : this.rules.get(symbol)) {
+            expectedTokens.addAll(rule.getPredictionSet());
+        }
+        return expectedTokens;
     }
 }

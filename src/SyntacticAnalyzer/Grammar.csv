@@ -1,5 +1,13 @@
 S,SubProcess Process
 ,
+According,segun id hacer AccordingBody finsegun
+AccordingBody,AccordingCaseList AccordingDefault
+AccordingCase,caso Expression token_dosp ProcessBody
+AccordingCaseList,AccordingCase AccordingCaseList
+AccordingCaseList,
+AccordingDefault,de otro modo token_dosp ProcessBody
+AccordingDefault,
+,
 ArrayDimensions,token_cor_izq NumericalExpressionFullList token_cor_der
 ,
 Asig,id token_asig Expression token_pyc
@@ -9,6 +17,7 @@ BinaryOp,token_menos
 BinaryOp,token_div
 BinaryOp,token_mul
 ,
+BooleanBinaryOp,token_igual
 BooleanBinaryOp,token_dif
 BooleanBinaryOp,token_menor
 BooleanBinaryOp,token_menor_igual
@@ -48,6 +57,11 @@ ExpressionList,
 ExpressionOp,BinaryOp Expression ExpressionOp
 ExpressionOp,
 ,
+For,para id token_asig Expression hasta NumericalExpression ForWithStep
+ForBody,hacer ProcessBody finpara
+ForWithStep,con paso Expression ForBody
+ForWithStep,ForBody
+,
 Id,id IdValue
 IdValue,ArrayDimensions
 IdValue,token_par_izq ExpressionFullList token_par_der
@@ -59,6 +73,8 @@ IdList,
 ,
 If,si BooleanExpression entonces ProcessBody ElseIf finsi
 ,
+NumericalExpression,id NumericalExpression
+NumericalExpression,token_neg NumericalExpression
 NumericalExpression,token_real NumericalExpressionOp
 NumericalExpression,token_entero NumericalExpressionOp
 NumericalExpression,token_par_izq NumericalExpression token_par_der NumericalExpressionOp
@@ -70,22 +86,37 @@ NumericalExpressionList,
 NumericalExpressionOp,BinaryOp NumericalExpression NumericalExpressionOp
 NumericalExpressionOp,
 ,
-Process,proceso id ProcessBody finproceso
-Process,algoritmo id ProcessBody finalgoritmo
-ProcessAction,Def
+Process,ProcessOpen id ProcessBody ProcessClose
+ProcessAction,According
 ProcessAction,Asig
 ProcessAction,Cmd
-ProcessAction,SetArrayDimension
+ProcessAction,Def
+ProcessAction,For
 ProcessAction,If
+ProcessAction,Repeat
+ProcessAction,SetArrayDimension
+ProcessAction,While
 ProcessAction,token_pyc
 ProcessActionList,ProcessAction ProcessActionList
 ProcessActionList,
-ProcessBody,ProcessAction ProcessActionList
+ProcessBody,ProcessActionList
+ProcessClose,finproceso
+ProcessClose,finalgoritmo
+ProcessOpen,proceso
+ProcessOpen,algoritmo
 ,
-SetArrayDimension,dimension id ArrayDimensions token_pyc
+Repeat,repetir ProcessBody hasta que BooleanExpression
 ,
-SubProcess,subproceso id token_asig id token_par_izq IdFullList token_par_der ProcessBody finsubproceso
+SetArrayDimension,dimension id ArrayDimensions SetArrayDimensionList token_pyc
+SetArrayDimensionList,token_coma id ArrayDimensions SetArrayDimensionList
+SetArrayDimensionList,
+,
+SubProcess,SubProcessOpen id token_asig id token_par_izq IdFullList token_par_der ProcessBody SubProcessClose
 SubProcess,
+SubProcessClose,finsubproceso
+SubProcessClose,finsubalgoritmo
+SubProcessOpen,subproceso
+SubProcessOpen,subalgoritmo
 ,
 UnaryOp,token_neg
 UnaryOp,token_menos
@@ -97,26 +128,4 @@ Value,token_cadena
 Value,token_entero
 Value,token_real
 ,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
-,
+While,mientras BooleanExpression hacer ProcessBody finmientras

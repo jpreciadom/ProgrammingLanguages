@@ -1,0 +1,16 @@
+Proceso mi_proceso
+
+    Definir a,p Como Entero;
+
+    p <- 4;
+
+    Para a<--10 Hasta 10 hacer
+        Escribir a;
+    FinPara
+
+    Para a<-(-10*2) Hasta 10/2 Con Paso p+1 Hacer
+        Escribir a;
+    FinPara
+
+FinProceso
+

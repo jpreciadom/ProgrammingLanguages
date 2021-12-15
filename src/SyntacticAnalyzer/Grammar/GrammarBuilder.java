@@ -1,18 +1,23 @@
 package SyntacticAnalyzer.Grammar;
 
+import Diccionary.Diccionary;
 import SyntacticAnalyzer.Exceptions.GrammarIsNotLL1Exception;
 
 import java.io.InputStream;
 import java.util.*;
 
 public class GrammarBuilder extends Grammar {
+    protected final Diccionary dictionary;
     protected final InputStream readFrom;
+
     protected final HashMap<String, LinkedList<RuleBuilder>> rulesInBuilding;
     protected final TreeSet<String> nonTerminals;
     protected final HashMap<String, TreeSet<String>> nonTerminalsFirsts;
     protected final HashMap<String, TreeSet<String>> nonTerminalsFollows;
 
-    public GrammarBuilder(InputStream readGrammarFrom) {
+    public GrammarBuilder (Diccionary dictionary, InputStream readGrammarFrom) {
+        super(dictionary);
+        this.dictionary = dictionary;
         this.readFrom = readGrammarFrom;
         this.rulesInBuilding = new HashMap<>();
         this.nonTerminals = new TreeSet<>();
@@ -197,7 +202,7 @@ public class GrammarBuilder extends Grammar {
     }
 
     public Grammar toGrammar() {
-        Grammar grammar = new Grammar();
+        Grammar grammar = new Grammar(diccionary);
         for (String nonTerminal : this.nonTerminals) {
             grammar.getRules().put(nonTerminal, new LinkedList<>());
             for (RuleBuilder ruleBuilder : this.rulesInBuilding.get(nonTerminal)) {

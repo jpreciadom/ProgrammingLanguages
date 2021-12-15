@@ -1,0 +1,4 @@
+Proceso mi_proceso
+    Definir datos Como Numero;
+    Dimension datos[200] //Error
+finalgoritmo

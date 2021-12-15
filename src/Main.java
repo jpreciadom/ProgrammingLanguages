@@ -28,10 +28,11 @@ public class Main {
         }
 
         grammar = new GrammarBuilder(
+                diccionary,
                 new FileInputStream( Main.class.getResource("SyntacticAnalyzer/Grammar.csv").getPath())
         ).toGrammar();
 
-        syntacticAnalyzer = new SyntacticAnalyzer(diccionary, grammar, lexicalAnalyzer.getOutput());
+        syntacticAnalyzer = new SyntacticAnalyzer(grammar, lexicalAnalyzer.getOutput());
         analyzeStatus = syntacticAnalyzer.analyze();
     }
 }

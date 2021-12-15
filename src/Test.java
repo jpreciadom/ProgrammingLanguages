@@ -22,6 +22,7 @@ public class Test {
         diccionary = new Diccionary();
 
         GrammarBuilder grammarBuilder = new GrammarBuilder(
+                diccionary,
                 new FileInputStream( Objects.requireNonNull(Test.class.getResource("SyntacticAnalyzer/Grammar.csv")).getPath())
         );
         grammarBuilder.verify();
@@ -42,7 +43,7 @@ public class Test {
     public static void testLexicalAnalyzer() throws FileNotFoundException {
         System.out.println("Testing lexical analyzer");
         String testFolderPath = baseTestURL + "\\LexicalAnalyzerTest\\";
-        for (int i = 1; i <= 0; i++) {
+        for (int i = 1; i <= 13; i++) {
             FileInputStream testInputStream = getTestFile(testFolderPath, i);
             Scanner expectedOutput = new Scanner(getExpectedFile(testFolderPath, i));
 
@@ -64,7 +65,7 @@ public class Test {
     public static void testSyntacticAnalyzer() throws FileNotFoundException {
         System.out.println("Testing syntactic analyzer\n");
         String testFolderPath = baseTestURL + "\\SyntacticAnalyzerTest\\";
-        for (int i = 7; i <= 7; i++) {
+        for (int i = 1; i <= 12; i++) {
             FileInputStream testInputStream = getTestFile(testFolderPath, i);
             Scanner expectedOutput = new Scanner(getExpectedFile(testFolderPath, i));
 
@@ -73,7 +74,7 @@ public class Test {
             lexicalAnalyzer = new LexicalAnalyzer(diccionary, testInputStream);
             lexicalAnalyzer.analyze();
 
-            syntacticAnalyzer = new SyntacticAnalyzer(diccionary, grammar, lexicalAnalyzer.getOutput());
+            syntacticAnalyzer = new SyntacticAnalyzer(grammar, lexicalAnalyzer.getOutput());
             syntacticAnalyzer.analyze();
 
             assertOutput(syntacticAnalyzer.getOutput(), expectedOutput.nextLine());

@@ -6,14 +6,17 @@ public class Diccionary {
     protected final HashMap<Character, Boolean> validCharacters;
     protected final HashMap<String, Boolean> reservedWords;
     protected final HashMap<String, String> customTokens;
+    protected final HashMap<String, String> tokenSymbols;
 
     public Diccionary() {
         this.validCharacters = new HashMap<>();
         this.reservedWords = new HashMap<>();
         this.customTokens = new HashMap<>();
+        this.tokenSymbols = new HashMap<>();
         this.setupValidCharacters();
         this.setupReservedWords();
         this.setupCustomTokens();
+        this.setupTokenSymbols();
     }
 
     private void setupValidCharacters() {
@@ -66,6 +69,7 @@ public class Diccionary {
         String []reservedWords = {
             "algoritmo",
             "borrar",
+            "caso",
             "cadena",
             "caracter",
             "como",
@@ -129,6 +133,10 @@ public class Diccionary {
         this.customTokens.put("o", "token_o");
         this.customTokens.put("no", "token_neg");
         this.customTokens.put("mod", "token_mod");
+    }
+
+    private void setupTokenSymbols() {
+        this.tokenSymbols.put("", "");
     }
 
     public boolean findCharacter(char toCheck) {
