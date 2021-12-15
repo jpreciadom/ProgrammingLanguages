@@ -1,0 +1,4 @@
+Proceso Mayores
+    Definir datos Como Numero;
+    Dimension datos[200];
+finalgoritmo

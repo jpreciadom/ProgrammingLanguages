@@ -1,11 +1,15 @@
-package LexicalAnalyzer.Outputs;
+package LexicalAnalyzer.Tokens;
 
-public class ComplexOutput extends BasicOutput {
+public class ComplexToken extends BasicToken {
     protected String lexeme;
 
-    public ComplexOutput(String tokenType, String lexeme, int row, int col) {
+    public ComplexToken(String tokenType, String lexeme, int row, int col) {
         super(tokenType, row, col);
         this.lexeme = lexeme;
+    }
+
+    public String getLexeme() {
+        return lexeme;
     }
 
     @Override

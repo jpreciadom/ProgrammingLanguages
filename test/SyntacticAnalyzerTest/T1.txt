@@ -1,0 +1,5 @@
+proceso mi_proceso
+    definir a,b,c,d,e como real;
+    definir e,r,a,c como texto;
+    definir pi como numerico;
+finproceso

@@ -1,0 +1,53 @@
+S,Process
+,
+Process,proceso id ProcessBody finproceso
+Process,algoritmo id ProcessBody finalgoritmo
+ProcessBody,ProcessAction ProcessActionList
+ProcessActionList,ProcessActionProcess ActionList
+ProcessActionList,
+ProcessAction,Def
+ProcessAction,Asig
+ProcessAction,Cmd
+ProcessAction,
+,
+Def,definir id DefIdList como DefType token_pyc
+DefType,numerico
+DefType,entero
+DefType,caracter
+DefType,real
+DefType,texto
+DefType,cadena
+DefType,numero
+DefType,logico
+DefIdList,token_coma id DefIdList
+DefIdList,
+,
+Asig,id token_asig Expression token_pyc
+,
+Cmd,escribir CmdWrite token_pyc
+CmdWrite,Expression CmdWriteList
+CmdWriteList,token_coma Expression CmdWriteList
+CmdWriteList,
+,
+Dimension,dimension id token_cor_izq Dimensions token_cor_der token_pyc
+Dimensions,token_entero DimensionsList
+DimensionsList,token_coma token_entero DimensionsList
+DimensionsList,
+,
+Expression,id
+Expression,id token_cor_izq Dimensions token_cor_der
+Expression,verdadero
+Expression,falso
+Expression,token_cadena
+Expression,token_entero
+Expression,token_real
+Expression,Expression BinaryOp Expression
+Expression,UnaryOp Expression
+Expression,token_par_izq BinaryOp token_par_der
+BinaryOp,token_mas
+BinaryOp,token_menos
+BinaryOp,token_div
+BinaryOp,token_mul
+BinaryOp,token_div
+UnaryOp,token_neg
+UnaryOp,token_menos

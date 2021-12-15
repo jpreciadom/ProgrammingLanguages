@@ -1,0 +1,5 @@
+proceso mi_proceso
+    //definir a,b como entero;
+    //Leer a,    b ;
+    Escribir a," ",b;
+finproceso

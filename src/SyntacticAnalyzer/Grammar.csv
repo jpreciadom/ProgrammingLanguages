@@ -1,0 +1,102 @@
+S,SubProcess Process
+,
+ArrayDimensions,id token_cor_izq NumericalExpresion token_cor_der
+,
+Asig,id token_asig Expression token_pyc
+,
+BinaryOp,token_mas
+BinaryOp,token_menos
+BinaryOp,token_div
+BinaryOp,token_mul
+,
+Cmd,escribir ExpressionFullList token_pyc
+Cmd,leer IdFullList token_pyc
+,
+Def,definir id IdList como DefType token_pyc
+DefType,numerico
+DefType,entero
+DefType,caracter
+DefType,real
+DefType,texto
+DefType,cadena
+DefType,numero
+DefType,logico
+,
+Expression,Value ExpressionOp
+Expression,UnaryOp Expression ExpressionOp
+Expression,token_par_izq Expression token_par_der ExpressionOp
+,
+ExpressionFullList,Expression ExpressionList
+ExpressionList,token_coma ExpressionFullList
+ExpressionList,
+,
+ExpressionOp,BinaryOp Expression ExpressionOp
+ExpressionOp,
+,
+Id,id IdValue
+IdValue,ArrayDimensions
+IdValue,token_par_izq ExpressionFullList token_par_der
+IdValue,
+,
+IdFullList,id IdList
+IdList,token_coma IdFullList
+IdList,
+,
+NumericalExpression,token_real NumericalExpressionOp
+NumericalExpression,token_entero NumericalExpressionOp
+NumericalExpression,token_par_izq NumericalExpression token_par_der NumericalExpressionOp
+NumericalExpressionOp,BinaryOp NumericalExpression NumericalExpressionOp
+NumericalExpressionOp,
+,
+Process,proceso id ProcessBody finproceso
+Process,algoritmo id ProcessBody finalgoritmo
+ProcessAction,Def
+ProcessAction,Asig
+ProcessAction,Cmd
+ProcessAction,SetArrayDimension
+ProcessAction,token_pyc
+ProcessActionList,ProcessAction ProcessActionList
+ProcessActionList,
+ProcessBody,ProcessAction ProcessActionList
+,
+SetArrayDimension,dimension SetArrayDimensions SetArrayDimensionsList token_pyc
+,
+SetArrayDimensionsList,token_coma ArrayDimensions SetArrayDimensionsList
+SetArrayDimensionsList,
+,
+SubProcess,subproceso id token_asig id token_par_izq IdFullList token_par_der ProcessBody finsubproceso
+SubProcess,
+,
+UnaryOp,token_neg
+UnaryOp,token_menos
+,
+Value,Id
+Value,verdadero
+Value,falso
+Value,token_cadena
+Value,token_entero
+Value,token_real
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,
+,

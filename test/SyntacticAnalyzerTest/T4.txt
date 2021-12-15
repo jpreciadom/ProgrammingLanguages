@@ -1,0 +1,10 @@
+SubProceso a <- doble ( e )
+    Definir a Como Entero;
+    a <- e*2;
+FinSubProceso
+
+proceso mi_proceso
+    Definir a como entero;
+    a <- doble(212);
+    Escribir a;
+finproceso

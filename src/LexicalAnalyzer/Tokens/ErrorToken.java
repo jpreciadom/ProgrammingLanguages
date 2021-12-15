@@ -1,8 +1,8 @@
-package LexicalAnalyzer.Outputs;
+package LexicalAnalyzer.Tokens;
 
-public class ErrorOutput extends BaseOutput {
+public class ErrorToken extends BaseToken {
 
-    public ErrorOutput(int row, int col) {
+    public ErrorToken(int row, int col) {
         super(row, col);
     }
 

@@ -1,8 +1,7 @@
 package LexicalAnalyzer.States.Interfaces;
 
 import Diccionary.Diccionary;
-import LexicalAnalyzer.Outputs.BasicOutput;
-import LexicalAnalyzer.States.S0;
+import LexicalAnalyzer.Tokens.BasicToken;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public abstract class NotAcceptanceState extends AbstractState {
@@ -17,7 +16,7 @@ public abstract class NotAcceptanceState extends AbstractState {
     public int getReturnSpaces() { throw new NotImplementedException(); }
 
     @Override
-    public BasicOutput getToken(int row, int col) { throw new NotImplementedException(); }
+    public BasicToken getToken(int row, int col) { throw new NotImplementedException(); }
 
     public IState lambdaTransition() {
         throw new NotImplementedException();

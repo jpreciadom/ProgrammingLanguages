@@ -1,7 +1,7 @@
 package LexicalAnalyzer.States;
 
 import Diccionary.Diccionary;
-import LexicalAnalyzer.Outputs.BasicOutput;
+import LexicalAnalyzer.Tokens.BasicToken;
 import LexicalAnalyzer.States.Interfaces.AcceptanceState;
 
 public class S17 extends AcceptanceState {
@@ -15,7 +15,7 @@ public class S17 extends AcceptanceState {
     }
 
     @Override
-    public BasicOutput getToken(int row, int col) {
+    public BasicToken getToken(int row, int col) {
         return null;
     }
 }

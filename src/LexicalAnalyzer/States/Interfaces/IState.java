@@ -1,13 +1,13 @@
 package LexicalAnalyzer.States.Interfaces;
 
 import LexicalAnalyzer.Exceptions.LexicalError;
-import LexicalAnalyzer.Outputs.BasicOutput;
+import LexicalAnalyzer.Tokens.BasicToken;
 
 public interface IState {
     boolean isAcceptanceState();
     int getReturnSpaces();
     String getBuffer();
-    BasicOutput getToken(int row, int col);
+    BasicToken getToken(int row, int col);
     IState lambdaTransition();
     IState processCharacter(char character) throws LexicalError;
 

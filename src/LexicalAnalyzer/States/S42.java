@@ -1,8 +1,8 @@
 package LexicalAnalyzer.States;
 
 import Diccionary.Diccionary;
-import LexicalAnalyzer.Outputs.BasicOutput;
-import LexicalAnalyzer.Outputs.ComplexOutput;
+import LexicalAnalyzer.Tokens.BasicToken;
+import LexicalAnalyzer.Tokens.ComplexToken;
 import LexicalAnalyzer.States.Interfaces.AcceptanceState;
 
 public class S42 extends AcceptanceState {
@@ -16,7 +16,7 @@ public class S42 extends AcceptanceState {
     }
 
     @Override
-    public BasicOutput getToken(int row, int col) {
+    public BasicToken getToken(int row, int col) {
         this.token = this.buffer.substring(0, this.buffer.length() - 1).toLowerCase();
         if (this.diccionary.isReservedWord(token)) {
             String token;
@@ -25,9 +25,9 @@ public class S42 extends AcceptanceState {
             } else {
                 token = this.token;
             }
-            return new BasicOutput(token, row, col - this.buffer.length() + 1);
+            return new BasicToken(token, row, col - this.buffer.length() + 1);
         } else {
-            return new ComplexOutput("id", this.token, row, col - this.buffer.length() + 1);
+            return new ComplexToken("id", this.token, row, col - this.buffer.length() + 1);
         }
     }
 }

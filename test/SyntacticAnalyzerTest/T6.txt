@@ -1,0 +1,8 @@
+proceso mi_proceso
+    escribir "total", cont * 2 + 1
+    ; //No es error sintactico
+    escribir "varias"," ",3," Expresiones";
+    escribir ; "varias"," ",3," Expresiones"; //error sintact
+
+    escribir; //error sintactico
+finproceso

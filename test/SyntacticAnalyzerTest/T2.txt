@@ -1,0 +1,8 @@
+proceso mi_proceso
+    definir numero_de_la_suerte,a como entero;
+
+    a <- 120; a <- 110;
+    numero_de_la_suerte <- 12;
+    numero_de_la_suerte <- (12)*a-12*(3-1);
+    b <- "verde manzana";
+finproceso

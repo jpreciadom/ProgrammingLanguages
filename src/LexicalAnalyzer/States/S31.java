@@ -1,8 +1,8 @@
 package LexicalAnalyzer.States;
 
 import Diccionary.Diccionary;
-import LexicalAnalyzer.Outputs.BasicOutput;
-import LexicalAnalyzer.Outputs.ComplexOutput;
+import LexicalAnalyzer.Tokens.BasicToken;
+import LexicalAnalyzer.Tokens.ComplexToken;
 import LexicalAnalyzer.States.Interfaces.ComplexAcceptanceState;
 
 public class S31 extends ComplexAcceptanceState {
@@ -17,8 +17,8 @@ public class S31 extends ComplexAcceptanceState {
     }
 
     @Override
-    public BasicOutput getToken(int row, int col) {
-        return new ComplexOutput(
+    public BasicToken getToken(int row, int col) {
+        return new ComplexToken(
                 this.token,
                 this.buffer.substring(1, this.buffer.length() - this.getReturnSpaces() - 1),
                 row,

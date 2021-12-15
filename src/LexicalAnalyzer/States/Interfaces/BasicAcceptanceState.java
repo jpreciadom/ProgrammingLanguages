@@ -1,7 +1,7 @@
 package LexicalAnalyzer.States.Interfaces;
 
 import Diccionary.Diccionary;
-import LexicalAnalyzer.Outputs.BasicOutput;
+import LexicalAnalyzer.Tokens.BasicToken;
 
 public abstract class BasicAcceptanceState extends AcceptanceState{
     public BasicAcceptanceState(Diccionary diccionary, String buffer) {
@@ -9,7 +9,7 @@ public abstract class BasicAcceptanceState extends AcceptanceState{
     }
 
     @Override
-    public BasicOutput getToken(int row, int col) {
-        return new BasicOutput(this.token, row, col - this.buffer.length() + 1);
+    public BasicToken getToken(int row, int col) {
+        return new BasicToken(this.token, row, col - this.buffer.length() + 1);
     }
 }
