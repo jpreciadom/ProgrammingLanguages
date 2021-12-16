@@ -65,6 +65,7 @@ public class S0 extends NotAcceptanceState {
                 return new S30(diccionary, buffer);
             case ' ':
             case '\n':
+            case '\t':
                 return new S0(diccionary);
             default:
                 throw new UnexpectedToken();

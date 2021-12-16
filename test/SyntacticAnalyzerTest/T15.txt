@@ -1,0 +1,94 @@
+funcion SinRetorno
+    si ~falso entonces
+        // empty if body
+    sino
+        // empty else body
+    finsi
+
+    para b <- -a * ((124 - sinretorno()) + a[sinretorno(a, a, a[aq])]) hasta no sinretorno() * ~a + 12 hacer
+        // empty for body
+    finpara
+finfuncion
+
+funcion a <- retornoNoParams()
+    escribir a;
+finfuncion
+
+funcion a <- retornoUnParams(a)
+finfuncion
+
+funcion a <- retornoDosParams(a, b)
+finfuncion
+
+funcion a <- retornoMultiParams(a, b, c, d, e, d, g, a, s, e, a)
+finfuncion
+
+Proceso mi_proceso
+    Definir a,p Como Entero;
+    p <- 4;
+
+    Para a<--10 Hasta 10 hacer
+        Escribir a;
+    FinPara
+
+    Para a<-(-10*2) Hasta 10/2 Con Paso p+1 Hacer
+        si ~falso entonces
+            si ~falso entonces
+                // empty if body
+            sino
+                repetir
+                    mientras 2 ^ ~falso hacer
+                        a();
+                        b(a());
+                        c(a(), a[1], a[1, b(a())]);
+                        a;
+                        a <- a();
+                        a[1,2,3 *a()] <- a();
+                        a[1,2,3 *a()] <- a[1,2,3 *a()] * a + a();
+                    finmientras
+                hasta que ((-(verdadero)) * (a mod 14))
+            finsi
+        finsi
+    FinPara
+
+    mientras 2 ^ ~falso hacer
+        mientras 2 ^ ~falso hacer
+            mientras 2 ^ ~falso hacer
+                    mientras 2 ^ ~falso hacer
+                        mientras 2 ^ ~falso hacer
+                            mientras 2 ^ ~falso hacer
+                                a();
+                                b(a());
+                                c(a(), a[1], a[1, b(a())]);
+                                a;
+                                a <- a();
+                                a[1,2,3 *a()] <- a();
+                                a[1,2,3 *a()] <- a[1,2,3 *a()] * a + a();
+                            finmientras
+                        finmientras
+                    finmientras
+                finmientras
+        finmientras
+    finmientras
+
+    mientras 2 ^ ~falso hacer
+        mientras 2 ^ ~falso hacer
+            mientras 2 ^ ~falso hacer
+                    mientras 2 ^ ~falso hacer
+                        mientras 2 ^ ~falso hacer
+                            mientras 2 ^ ~falso hacer
+                            finmientras
+                        finmientras
+                    finmientras
+                finmientras
+        finmientras
+    finmientras
+
+    segun a(a[a()]) hacer
+        caso a(a[a()]):
+        de otro modo:
+    finsegun
+
+    segun 1 hacer
+    finsegun
+FinProceso

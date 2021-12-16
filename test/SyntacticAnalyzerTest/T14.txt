@@ -1,0 +1,5 @@
+proceso mi_proceso
+    Definir a como entero;
+    Escribir a1/10;
+    a( a( a[ a()] ) );
+finproceso

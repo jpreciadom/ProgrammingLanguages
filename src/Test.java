@@ -66,14 +66,17 @@ public class Test {
     public static void testSyntacticAnalyzer() throws FileNotFoundException {
         System.out.println("Testing syntactic analyzer\n");
         String testFolderPath = baseTestURL + "\\SyntacticAnalyzerTest\\";
-        for (int i = 1; i <= 13; i++) {
+        for (int i = 1; i <= 16; i++) {
             FileInputStream testInputStream = getTestFile(testFolderPath, i);
             Scanner expectedOutput = new Scanner(getExpectedFile(testFolderPath, i));
 
             System.out.println("Test No: " + i);
 
             lexicalAnalyzer = new LexicalAnalyzer(diccionary, testInputStream);
-            lexicalAnalyzer.analyze(true);
+
+            if (!lexicalAnalyzer.analyze(true)) {
+                assertOutput(lexicalAnalyzer.getOutput().peekLast().toString(), expectedOutput.nextLine());
+            }
 
             syntacticAnalyzer = new SyntacticAnalyzer(diccionary, grammar, lexicalAnalyzer.getOutput());
             syntacticAnalyzer.analyze();
