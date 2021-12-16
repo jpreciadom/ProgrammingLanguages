@@ -48,7 +48,7 @@ BooleanExpressionOp,
 Cmd,escribir ExpressionFullList token_pyc
 Cmd,leer IdGetter token_pyc
 Cmd,limpiar pantalla token_pyc
-Cmd,borrar token_pyc
+Cmd,borrar pantalla token_pyc
 Cmd,esperar CmdWait token_pyc
 CmdWait,tecla
 CmdWait,Expression CmdWaitUnitTime
@@ -102,7 +102,7 @@ Id,id IdValue
 ,
 IdAction,ArrayDimensions Asig
 IdAction,Asig
-IdAction,FunctionCall
+IdAction,FunctionCall token_pyc
 IdAction,token_pyc
 IdActionCaller,id IdAction
 ,
@@ -179,7 +179,7 @@ SetArrayDimension,dimension id ArrayDimensions SetArrayDimensionList token_pyc
 SetArrayDimensionList,token_coma id ArrayDimensions SetArrayDimensionList
 SetArrayDimensionList,
 ,
-SubProcess,SubProcessOpen id token_asig id token_par_izq IdFullList token_par_der SubProcessActionList SubProcessClose
+SubProcess,SubProcessOpen id SubProcessReturn SubProcessActionList SubProcessClose
 SubProcess,
 SubProcessAction,According
 SubProcessAction,IdActionCaller
@@ -198,6 +198,8 @@ SubProcessClose,finsubalgoritmo
 SubProcessOpen,funcion
 SubProcessOpen,subproceso
 SubProcessOpen,subalgoritmo
+SubProcessReturn,token_asig id token_par_izq IdFullList token_par_der
+SubProcessReturn,
 ,
 UnaryOp,token_neg
 UnaryOp,token_menos

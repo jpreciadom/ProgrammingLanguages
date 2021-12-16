@@ -1,16 +1,15 @@
-Proceso mi_proceso
-    Definir a Como Real;
-    a <- 3.51;
-    Segun a Hacer
-        caso 5/2:
-            Escribir "2";
-            Escribir "5";
-        caso 7/2:
-            Escribir "3";
-        De Otro Modo:
-            Escribir "4";
-    FinSegun
-FinProceso
+// funcion que no recibe ni devuelve nada
+SubProceso Saludar
+    Escribir "Hola mundo!";
+FinSubProceso
 
+// funcion que recibe un argumento por valor, y devuelve su doble
+SubProceso res <- CalcularDoble(num)
+    Definir res como real;
+    res <- num*2; // retorna el doble
+FinSubProceso
 
-
+// funcion que recibe un argumento por referencia, y lo modifica
+SubProceso Triplicar(num)
+    num <- num*3; // modifica la variable duplicando su valor
+FinSubProceso

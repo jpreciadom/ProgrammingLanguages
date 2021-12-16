@@ -12,6 +12,9 @@ public abstract class ErrorBuilder {
             String tokenFound,
             TreeSet<String> expectedTokens
     ) {
+        if (expectedTokens.contains("algoritmo")) {
+            return "Error sintactico: falta proceso";
+        }
         StringBuilder errorBuilder = new StringBuilder();
         errorBuilder.append("<").append(row) .append(":") .append(col) .append(">");
         errorBuilder.append(" Error sintactico: se encontro: \"").append(diccionary.getTokenSymbol(tokenFound)).append("\";");
