@@ -2,6 +2,7 @@ package SyntacticAnalyzer.Grammar;
 
 import Diccionary.Diccionary;
 import LexicalAnalyzer.Tokens.BasicToken;
+import SyntacticAnalyzer.Exceptions.ErrorBuilder;
 import SyntacticAnalyzer.Exceptions.NoDerivationFoundException;
 
 import java.util.*;
@@ -37,17 +38,15 @@ public class Grammar {
         if (epsilon != null) {
             return (LinkedList<String>) epsilon.getDerivation().clone();
         } else {
-            StringBuilder errorBuilder = new StringBuilder();
-            errorBuilder.append("<").append(token.getRow()) .append(":") .append(token.getCol()) .append(">");
-            errorBuilder.append(" Error sintactico: se encontro: \"");
-            errorBuilder.append(this.diccionary.getTokenSymbol(token.getTokenType())).append("\";");
-            errorBuilder.append(" se esperaba: ");
-            for (String expectedToken : this.getExpectedTokens(symbol)) {
-                errorBuilder.append('\"').append(this.diccionary.getTokenSymbol(expectedToken)).append('\"').append(", ");
-            }
-            errorBuilder.setLength(errorBuilder.length() - 2);
-            errorBuilder.append('.');
-            throw new NoDerivationFoundException(errorBuilder.toString());
+            throw new NoDerivationFoundException(
+                    ErrorBuilder.buildError(
+                            diccionary,
+                            token.getRow(),
+                            token.getCol(),
+                            token.getTokenType(),
+                            this.getExpectedTokens(symbol)
+                    )
+            );
         }
     }
 

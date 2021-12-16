@@ -1,5 +1,10 @@
-proceso mi_proceso
-    definir a,b como entero;
-    Leer a,    b ;
-    Escribir a," ",b;
-finproceso
+Funcion s<-potencia(a,b)
+    Definir s Como Real;
+    s <- a^b;
+FinFuncion
+
+Proceso potenciador
+    //Comentario
+    Escribir potencia(1,2);
+FinProceso
+

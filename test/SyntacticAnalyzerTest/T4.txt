@@ -1,10 +1,14 @@
-SubProceso a <- doble ( e )
-    Definir a Como Entero;
-    a <- e*2;
-FinSubProceso
+Proceso proceso2
+    Si a<b Entonces
+        Escribir "a es mayor";
+    Sino
+        Escribir "b es mayor";
+    FinSi
 
-proceso mi_proceso
-    Definir a como entero;
-    a <- doble(212);
-    Escribir a;
-finproceso
+    Si a<b
+       Escribir "a es mayor";
+    Sino
+        Escribir "b es mayor";
+    FinSi
+FinProceso
+

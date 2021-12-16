@@ -31,7 +31,7 @@ public class LexicalAnalyzer {
         return this.output;
     }
 
-    public boolean analyze() {
+    public boolean analyze(boolean includeEOF) {
         int row = 0;
         while(this.input.hasNext()) {
             row ++;
@@ -58,6 +58,10 @@ public class LexicalAnalyzer {
                 }
                 col++;
             }
+        }
+
+        if (includeEOF) {
+            this.output.addLast(new BasicToken("eof", row + 1, 1));
         }
         return true;
     }

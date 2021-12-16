@@ -1,12 +1,23 @@
-S,SubProcess Process
+S,SubProcess Process eof
 ,
 According,segun id hacer AccordingBody finsegun
 AccordingBody,AccordingCaseList AccordingDefault
-AccordingCase,caso Expression token_dosp ProcessBody
+AccordingCase,caso Expression token_dosp AccordingActionList
 AccordingCaseList,AccordingCase AccordingCaseList
 AccordingCaseList,
-AccordingDefault,de otro modo token_dosp ProcessBody
+AccordingDefault,de otro modo token_dosp AccordingActionList
 AccordingDefault,
+AccordingAction,According
+AccordingAction,Asig
+AccordingAction,Cmd
+AccordingAction,Def
+AccordingAction,For
+AccordingAction,If
+AccordingAction,Repeat
+AccordingAction,SetArrayDimension
+AccordingAction,While
+AccordingActionList,AccordingAction AccordingActionList
+AccordingActionList,
 ,
 ArrayDimensions,token_cor_izq NumericalExpressionFullList token_cor_der
 ,
@@ -32,6 +43,11 @@ BooleanExpressionOp,
 ,
 Cmd,escribir ExpressionFullList token_pyc
 Cmd,leer IdFullList token_pyc
+Cmd,limpiar token_pyc
+Cmd,borrar token_pyc
+Cmd,esperar Expression CmdWaitUnitTime token_pyc
+CmdWaitUnitTime,segundos
+CmdWaitUnitTime,milisegundos
 ,
 Def,definir id IdList como DefType token_pyc
 DefType,numerico
@@ -43,7 +59,7 @@ DefType,cadena
 DefType,numero
 DefType,logico
 ,
-Else,sino ProcessBody
+Else,sino IfActionList
 Else,
 ElseIf,Else
 ,
@@ -59,7 +75,18 @@ ExpressionOp,BinaryOp Expression ExpressionOp
 ExpressionOp,
 ,
 For,para id token_asig Expression hasta NumericalExpression ForWithStep
-ForBody,hacer ProcessBody finpara
+ForAction,According
+ForAction,Asig
+ForAction,Cmd
+ForAction,Def
+ForAction,For
+ForAction,If
+ForAction,Repeat
+ForAction,SetArrayDimension
+ForAction,While
+ForActionList,ForAction ForActionList
+ForActionList,
+ForBody,hacer ForActionList finpara
 ForWithStep,con paso Expression ForBody
 ForWithStep,ForBody
 ,
@@ -72,7 +99,18 @@ IdFullList,id IdList
 IdList,token_coma IdFullList
 IdList,
 ,
-If,si BooleanExpression entonces ProcessBody ElseIf finsi
+If,si BooleanExpression entonces IfActionList ElseIf finsi
+IfAction,According
+IfAction,Asig
+IfAction,Cmd
+IfAction,Def
+IfAction,For
+IfAction,If
+IfAction,Repeat
+IfAction,SetArrayDimension
+IfAction,While
+IfActionList,IfAction IfActionList
+IfActionList,
 ,
 NumericalExpression,id NumericalExpression
 NumericalExpression,token_neg NumericalExpression
@@ -97,7 +135,6 @@ ProcessAction,If
 ProcessAction,Repeat
 ProcessAction,SetArrayDimension
 ProcessAction,While
-ProcessAction,token_pyc
 ProcessActionList,ProcessAction ProcessActionList
 ProcessActionList,
 ProcessBody,ProcessActionList
@@ -106,16 +143,40 @@ ProcessClose,finalgoritmo
 ProcessOpen,proceso
 ProcessOpen,algoritmo
 ,
-Repeat,repetir ProcessBody hasta que BooleanExpression
+Repeat,repetir RepeatActionList hasta que BooleanExpression
+RepeatAction,According
+RepeatAction,Asig
+RepeatAction,Cmd
+RepeatAction,Def
+RepeatAction,For
+RepeatAction,If
+RepeatAction,Repeat
+RepeatAction,SetArrayDimension
+RepeatAction,While
+RepeatActionList,RepeatAction RepeatActionList
+RepeatActionList,
 ,
 SetArrayDimension,dimension id ArrayDimensions SetArrayDimensionList token_pyc
 SetArrayDimensionList,token_coma id ArrayDimensions SetArrayDimensionList
 SetArrayDimensionList,
 ,
-SubProcess,SubProcessOpen id token_asig id token_par_izq IdFullList token_par_der ProcessBody SubProcessClose
+SubProcess,SubProcessOpen id token_asig id token_par_izq IdFullList token_par_der SubProcessActionList SubProcessClose
 SubProcess,
+SubProcessAction,According
+SubProcessAction,Asig
+SubProcessAction,Cmd
+SubProcessAction,Def
+SubProcessAction,For
+SubProcessAction,If
+SubProcessAction,Repeat
+SubProcessAction,SetArrayDimension
+SubProcessAction,While
+SubProcessActionList,SubProcessAction SubProcessActionList
+SubProcessActionList,
+SubProcessClose,finfuncion
 SubProcessClose,finsubproceso
 SubProcessClose,finsubalgoritmo
+SubProcessOpen,funcion
 SubProcessOpen,subproceso
 SubProcessOpen,subalgoritmo
 ,
@@ -128,4 +189,15 @@ Value,token_cadena
 Value,token_entero
 Value,token_real
 ,
-While,mientras BooleanExpression hacer ProcessBody finmientras
+While,mientras BooleanExpression hacer WhileActionList finmientras
+WhileAction,According
+WhileAction,Asig
+WhileAction,Cmd
+WhileAction,Def
+WhileAction,For
+WhileAction,If
+WhileAction,Repeat
+WhileAction,SetArrayDimension
+WhileAction,While
+WhileActionList,WhileAction WhileActionList
+WhileActionList,

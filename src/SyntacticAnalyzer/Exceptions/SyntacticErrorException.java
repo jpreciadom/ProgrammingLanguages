@@ -1,11 +1,6 @@
 package SyntacticAnalyzer.Exceptions;
 
-public class SyntacticErrorException extends Exception {
-
-    public SyntacticErrorException() {
-
-    }
-
+public abstract class SyntacticErrorException extends Exception {
     public SyntacticErrorException(String message) {
         super(message);
     }

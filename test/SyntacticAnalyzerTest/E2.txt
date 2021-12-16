@@ -1,1 +1,1 @@
-El analisis sintactico ha finalizado exitosamente.
+<5:1> Error sintactico: se encontro: "EOF"; se esperaba: "borrar", "definir", "dimension", "escribir", "esperar", "finalgoritmo", "finproceso", "identificador", "leer", "limpiar", "mientras", "para", "repetir", "segun", "si".

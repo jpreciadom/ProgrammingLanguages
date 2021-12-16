@@ -1,1 +1,1 @@
-El analisis sintactico ha finalizado exitosamente.
+<9:8> Error sintactico: se encontro: "escribir"; se esperaba: "entonces".

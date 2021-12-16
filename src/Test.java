@@ -1,6 +1,7 @@
 import Diccionary.Diccionary;
 import LexicalAnalyzer.LexicalAnalyzer;
 import LexicalAnalyzer.Tokens.BaseToken;
+import LexicalAnalyzer.Tokens.BasicToken;
 import SyntacticAnalyzer.Exceptions.GrammarIsNotLL1Exception;
 import SyntacticAnalyzer.Grammar.Grammar;
 import SyntacticAnalyzer.Grammar.GrammarBuilder;
@@ -50,7 +51,7 @@ public class Test {
             System.out.println("Test No: " + i + "\n");
 
             lexicalAnalyzer = new LexicalAnalyzer(diccionary, testInputStream);
-            lexicalAnalyzer.analyze();
+            lexicalAnalyzer.analyze(false);
 
             for (BaseToken output : lexicalAnalyzer.getOutput()) {
                 String received = output.toString();
@@ -72,9 +73,9 @@ public class Test {
             System.out.println("Test No: " + i);
 
             lexicalAnalyzer = new LexicalAnalyzer(diccionary, testInputStream);
-            lexicalAnalyzer.analyze();
+            lexicalAnalyzer.analyze(true);
 
-            syntacticAnalyzer = new SyntacticAnalyzer(grammar, lexicalAnalyzer.getOutput());
+            syntacticAnalyzer = new SyntacticAnalyzer(diccionary, grammar, lexicalAnalyzer.getOutput());
             syntacticAnalyzer.analyze();
 
             assertOutput(syntacticAnalyzer.getOutput(), expectedOutput.nextLine());

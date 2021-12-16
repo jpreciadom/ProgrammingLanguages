@@ -163,6 +163,7 @@ public class Diccionary {
         this.tokenSymbols.put("token_entero", "valor_entero");
         this.tokenSymbols.put("token_real", "valor_real");
         this.tokenSymbols.put("id", "identificador");
+        this.tokenSymbols.put("eof", "EOF");
     }
 
     public boolean findCharacter(char toCheck) {
