@@ -39,12 +39,13 @@ public class Grammar {
         } else {
             StringBuilder errorBuilder = new StringBuilder();
             errorBuilder.append("<").append(token.getRow()) .append(":") .append(token.getCol()) .append(">");
-            errorBuilder.append(" Error sintactico: se encontro: \"") .append(token.getTokenType()).append("\";");
+            errorBuilder.append(" Error sintactico: se encontro: \"");
+            errorBuilder.append(this.diccionary.getTokenSymbol(token.getTokenType())).append("\";");
             errorBuilder.append(" se esperaba: ");
             for (String expectedToken : this.getExpectedTokens(symbol)) {
-                errorBuilder.append('\"').append(expectedToken).append('\"').append(',');
+                errorBuilder.append('\"').append(this.diccionary.getTokenSymbol(expectedToken)).append('\"').append(", ");
             }
-            errorBuilder.setLength(errorBuilder.length() - 1);
+            errorBuilder.setLength(errorBuilder.length() - 2);
             errorBuilder.append('.');
             throw new NoDerivationFoundException(errorBuilder.toString());
         }

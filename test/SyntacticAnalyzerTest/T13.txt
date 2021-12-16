@@ -1,0 +1,4 @@
+proceso mi_proceso
+    definir a como entero;
+    a <- ;
+finproceso

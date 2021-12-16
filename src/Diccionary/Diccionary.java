@@ -136,7 +136,33 @@ public class Diccionary {
     }
 
     private void setupTokenSymbols() {
-        this.tokenSymbols.put("", "");
+        this.tokenSymbols.put("token_neg", "~");
+        this.tokenSymbols.put("token_igual", "=");
+        this.tokenSymbols.put("token_asig", "<-");
+        this.tokenSymbols.put("token_dif", "<>");
+        this.tokenSymbols.put("token_menor_igual", "<=");
+        this.tokenSymbols.put("token_menor", "<");
+        this.tokenSymbols.put("token_mayor_igual", ">=");
+        this.tokenSymbols.put("token_mayor", ">");
+        this.tokenSymbols.put("token_mas", ">");
+        this.tokenSymbols.put("token_menos", "-");
+        this.tokenSymbols.put("token_div", "/");
+        this.tokenSymbols.put("token_mul", "*");
+        this.tokenSymbols.put("token_mod", "%");
+        this.tokenSymbols.put("token_pyc", ";");
+        this.tokenSymbols.put("token_dosp", ":");
+        this.tokenSymbols.put("token_par_izq", "(");
+        this.tokenSymbols.put("token_par_der", ")");
+        this.tokenSymbols.put("token_cor_izq", "[");
+        this.tokenSymbols.put("token_cor_der", "]");
+        this.tokenSymbols.put("token_o", "|");
+        this.tokenSymbols.put("token_y", "&");
+        this.tokenSymbols.put("token_coma", ",");
+        this.tokenSymbols.put("token_pot", "^");
+        this.tokenSymbols.put("token_cadena", "valor_cadena");
+        this.tokenSymbols.put("token_entero", "valor_entero");
+        this.tokenSymbols.put("token_real", "valor_real");
+        this.tokenSymbols.put("id", "identificador");
     }
 
     public boolean findCharacter(char toCheck) {
@@ -153,5 +179,10 @@ public class Diccionary {
 
     public String getCustomToken(String token) {
         return this.customTokens.get(token);
+    }
+
+    public String getTokenSymbol(String token) {
+        String reg = this.tokenSymbols.get(token);
+        return reg == null ? token : reg;
     }
 }

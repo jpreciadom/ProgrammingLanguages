@@ -16,6 +16,7 @@ BinaryOp,token_mas
 BinaryOp,token_menos
 BinaryOp,token_div
 BinaryOp,token_mul
+BinaryOp,token_pot
 ,
 BooleanBinaryOp,token_igual
 BooleanBinaryOp,token_dif
@@ -118,7 +119,6 @@ SubProcessClose,finsubalgoritmo
 SubProcessOpen,subproceso
 SubProcessOpen,subalgoritmo
 ,
-UnaryOp,token_neg
 UnaryOp,token_menos
 ,
 Value,Id
