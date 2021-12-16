@@ -1,4 +1,7 @@
-Proceso Mayores
-    Definir datos,datos2 Como entero;
-    Dimension datos[200.8-102.1,569] ,datos2[10];
-finalgoritmo
+proceso mi_proceso
+    definir m como real;
+    dimension m [10, b, m, 4]; //Un arreglo de 4 dimensiones
+    Escribir m[0,0,0,0];
+    Leer m[1,0,0,0];
+    Escribir m[0,0,0,0] * m[1,0,0,0];
+finproceso

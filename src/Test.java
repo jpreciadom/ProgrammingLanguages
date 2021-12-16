@@ -44,7 +44,7 @@ public class Test {
     public static void testLexicalAnalyzer() throws FileNotFoundException {
         System.out.println("Testing lexical analyzer");
         String testFolderPath = baseTestURL + "\\LexicalAnalyzerTest\\";
-        for (int i = 1; i <= 13; i++) {
+        for (int i = 14; i <= 13; i++) {
             FileInputStream testInputStream = getTestFile(testFolderPath, i);
             Scanner expectedOutput = new Scanner(getExpectedFile(testFolderPath, i));
 

@@ -8,7 +8,7 @@ AccordingCaseList,
 AccordingDefault,de otro modo token_dosp AccordingActionList
 AccordingDefault,
 AccordingAction,According
-AccordingAction,Asig
+AccordingAction,IdActionCaller
 AccordingAction,Cmd
 AccordingAction,Def
 AccordingAction,For
@@ -21,13 +21,15 @@ AccordingActionList,
 ,
 ArrayDimensions,token_cor_izq NumericalExpressionFullList token_cor_der
 ,
-Asig,id token_asig Expression token_pyc
+Asig,token_asig Expression token_pyc
 ,
 BinaryOp,token_mas
 BinaryOp,token_menos
 BinaryOp,token_div
 BinaryOp,token_mul
 BinaryOp,token_pot
+BinaryOp,token_mod
+BinaryOp,BooleanBinaryOp
 ,
 BooleanBinaryOp,token_igual
 BooleanBinaryOp,token_dif
@@ -35,6 +37,8 @@ BooleanBinaryOp,token_menor
 BooleanBinaryOp,token_menor_igual
 BooleanBinaryOp,token_mayor
 BooleanBinaryOp,token_mayor_igual
+BooleanBinaryOp,token_y
+BooleanBinaryOp,token_o
 BooleanUnaryOp,token_neg
 ,
 BooleanExpression,Expression BooleanExpressionOp
@@ -42,10 +46,12 @@ BooleanExpressionOp,BooleanBinaryOp BooleanExpression BooleanExpressionOp
 BooleanExpressionOp,
 ,
 Cmd,escribir ExpressionFullList token_pyc
-Cmd,leer IdFullList token_pyc
-Cmd,limpiar token_pyc
+Cmd,leer IdGetter token_pyc
+Cmd,limpiar pantalla token_pyc
 Cmd,borrar token_pyc
-Cmd,esperar Expression CmdWaitUnitTime token_pyc
+Cmd,esperar CmdWait token_pyc
+CmdWait,tecla
+CmdWait,Expression CmdWaitUnitTime
 CmdWaitUnitTime,segundos
 CmdWaitUnitTime,milisegundos
 ,
@@ -76,7 +82,7 @@ ExpressionOp,
 ,
 For,para id token_asig Expression hasta NumericalExpression ForWithStep
 ForAction,According
-ForAction,Asig
+ForAction,IdActionCaller
 ForAction,Cmd
 ForAction,Def
 ForAction,For
@@ -90,9 +96,22 @@ ForBody,hacer ForActionList finpara
 ForWithStep,con paso Expression ForBody
 ForWithStep,ForBody
 ,
+FunctionCall,token_par_izq ExpressionFullList token_par_der
+,
 Id,id IdValue
+,
+IdAction,ArrayDimensions Asig
+IdAction,Asig
+IdAction,FunctionCall
+IdAction,token_pyc
+IdActionCaller,id IdAction
+,
+IdGetter,id IdGetterArray
+IdGetterArray,ArrayDimensions
+IdGetterArray,
+,
 IdValue,ArrayDimensions
-IdValue,token_par_izq ExpressionFullList token_par_der
+IdValue,FunctionCall
 IdValue,
 ,
 IdFullList,id IdList
@@ -101,7 +120,7 @@ IdList,
 ,
 If,si BooleanExpression entonces IfActionList ElseIf finsi
 IfAction,According
-IfAction,Asig
+IfAction,IdActionCaller
 IfAction,Cmd
 IfAction,Def
 IfAction,For
@@ -112,14 +131,14 @@ IfAction,While
 IfActionList,IfAction IfActionList
 IfActionList,
 ,
-NumericalExpression,id NumericalExpression
-NumericalExpression,token_neg NumericalExpression
+NumericalExpression,Id NumericalExpressionOp
+NumericalExpression,token_menos NumericalExpressionOp
 NumericalExpression,token_real NumericalExpressionOp
 NumericalExpression,token_entero NumericalExpressionOp
 NumericalExpression,token_par_izq NumericalExpression token_par_der NumericalExpressionOp
 ,
-NumericalExpressionFullList,Expression ExpressionList
-NumericalExpressionList,token_coma ExpressionFullList
+NumericalExpressionFullList,NumericalExpression NumericalExpressionList
+NumericalExpressionList,token_coma NumericalExpressionFullList
 NumericalExpressionList,
 ,
 NumericalExpressionOp,BinaryOp NumericalExpression NumericalExpressionOp
@@ -127,7 +146,7 @@ NumericalExpressionOp,
 ,
 Process,ProcessOpen id ProcessBody ProcessClose
 ProcessAction,According
-ProcessAction,Asig
+ProcessAction,IdActionCaller
 ProcessAction,Cmd
 ProcessAction,Def
 ProcessAction,For
@@ -145,7 +164,7 @@ ProcessOpen,algoritmo
 ,
 Repeat,repetir RepeatActionList hasta que BooleanExpression
 RepeatAction,According
-RepeatAction,Asig
+RepeatAction,IdActionCaller
 RepeatAction,Cmd
 RepeatAction,Def
 RepeatAction,For
@@ -163,7 +182,7 @@ SetArrayDimensionList,
 SubProcess,SubProcessOpen id token_asig id token_par_izq IdFullList token_par_der SubProcessActionList SubProcessClose
 SubProcess,
 SubProcessAction,According
-SubProcessAction,Asig
+SubProcessAction,IdActionCaller
 SubProcessAction,Cmd
 SubProcessAction,Def
 SubProcessAction,For
@@ -180,6 +199,7 @@ SubProcessOpen,funcion
 SubProcessOpen,subproceso
 SubProcessOpen,subalgoritmo
 ,
+UnaryOp,token_neg
 UnaryOp,token_menos
 ,
 Value,Id
@@ -191,7 +211,7 @@ Value,token_real
 ,
 While,mientras BooleanExpression hacer WhileActionList finmientras
 WhileAction,According
-WhileAction,Asig
+WhileAction,IdActionCaller
 WhileAction,Cmd
 WhileAction,Def
 WhileAction,For
