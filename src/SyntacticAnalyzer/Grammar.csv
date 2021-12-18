@@ -2,7 +2,7 @@ S,SubProcessList Process eof
 ,
 According,segun Expression hacer AccordingBody finsegun
 AccordingBody,AccordingCaseList AccordingDefault
-AccordingCase,caso Expression token_dosp AccordingActionList
+AccordingCase,caso ExpressionFullList token_dosp AccordingActionList
 AccordingCaseList,AccordingCase AccordingCaseList
 AccordingCaseList,
 AccordingDefault,de otro modo token_dosp AccordingActionList
@@ -40,6 +40,10 @@ BooleanBinaryOp,token_mayor_igual
 BooleanBinaryOp,token_y
 BooleanBinaryOp,token_o
 BooleanUnaryOp,token_neg
+,
+BooleanExpression,Expression BooleanExpressionOp
+BooleanExpressionOp,BooleanBinaryOp BooleanExpression BooleanExpressionOp
+BooleanExpressionOp,
 ,
 Cmd,escribir ExpressionFullList token_pyc
 Cmd,leer CmdReadId token_pyc
@@ -170,6 +174,9 @@ StarterIdComplement,ArrayDimensions Asig
 StarterIdComplement,FunctionCall token_pyc
 StarterIdComplement,token_pyc
 ,
+StringComplement,sin saltar
+StringComplement,
+,
 SubProcess,SubProcessOpen id SubProcessComplement
 SubProcessAction,According
 SubProcessAction,StarterId
@@ -199,10 +206,10 @@ SubProcessReturn,SubProcessActionList SubProcessClose
 UnaryOp,token_neg
 UnaryOp,token_menos
 ,
-Value,IdGetValue
+Value,IdGetValue StringComplement
 Value,verdadero
 Value,falso
-Value,token_cadena
+Value,token_cadena StringComplement
 Value,token_entero
 Value,token_real
 ,
