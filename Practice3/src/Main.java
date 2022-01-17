@@ -12,8 +12,7 @@ public class Main {
         PseIntParser pseIntParser = new PseIntParser(tokens);
         ParseTree parseTree = pseIntParser.s();
 
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("output/output.java"));
-        PseIntToJavaScript<Object> loader = new PseIntToJavaScript<>();
+        PseIntToJavaScript<Object> loader = new PseIntToJavaScript<>(new BufferedWriter(new FileWriter("output/output.js")));
         loader.visit(parseTree);
     }
 }
